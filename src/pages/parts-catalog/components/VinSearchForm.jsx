@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+
 import Icon from '../../../components/AppIcon';
-import Input from '../../../components/ui/Input';
 import Button from '../../../components/ui/Button';
+import Input from '../../../components/ui/Input';
 
 const VinSearchForm = ({ onSearch, isLoading }) => {
   const [vinNumber, setVinNumber] = useState('');

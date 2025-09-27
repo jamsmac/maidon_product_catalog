@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { BarChart3, TrendingUp, TrendingDown, Activity, Gauge } from 'lucide-react';
+import React, { useState } from 'react';
 
 const PerformanceMetrics = ({ equipment, timeRange }) => {
   const [activeMetric, setActiveMetric] = useState('utilization');

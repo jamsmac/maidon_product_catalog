@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Play, Maximize2, RotateCcw, Box } from 'lucide-react';
+import React, { useState } from 'react';
 
 const MediaGallery = ({ media = [], onMediaInteraction }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);

@@ -1,7 +1,8 @@
 import React from 'react';
-import Select from '../../../components/ui/Select';
+
 import { Checkbox } from '../../../components/ui/Checkbox';
 import Input from '../../../components/ui/Input';
+import Select from '../../../components/ui/Select';
 
 const FinancingPreferences = ({ formData, updateFormData, errors }) => {
   const handleInputChange = (field, value) => {

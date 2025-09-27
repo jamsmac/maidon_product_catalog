@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Search, Filter, Download, AlertTriangle, CheckCircle, Clock, MapPin, Wrench, Activity, Fuel, Calendar, Users, FileText, BarChart3, PieChart, MoreVertical, Eye, Edit, Bell, Gauge } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+
 import Button from '../../components/ui/Button';
 import Input from '../../components/ui/Input';
 import Select from '../../components/ui/Select';
-import { Search, Filter, Download, AlertTriangle, CheckCircle, Clock, MapPin, Wrench, Activity, Fuel, Calendar, Users, FileText, BarChart3, PieChart, MoreVertical, Eye, Edit, Bell, Gauge } from 'lucide-react';
-import FleetOverview from './components/FleetOverview';
+
+
 import EquipmentStatus from './components/EquipmentStatus';
+import FinancialTracking from './components/FinancialTracking';
+import FleetOverview from './components/FleetOverview';
+import LocationTracking from './components/LocationTracking';
 import MaintenanceAlerts from './components/MaintenanceAlerts';
 import PerformanceMetrics from './components/PerformanceMetrics';
-import FinancialTracking from './components/FinancialTracking';
-import LocationTracking from './components/LocationTracking';
 
 const EquipmentDashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');

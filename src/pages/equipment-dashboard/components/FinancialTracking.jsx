@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { DollarSign, TrendingUp, TrendingDown, PieChart, Calculator } from 'lucide-react';
+import React, { useState } from 'react';
 
 const FinancialTracking = ({ equipment, timeRange }) => {
   const [activeView, setActiveView] = useState('overview');

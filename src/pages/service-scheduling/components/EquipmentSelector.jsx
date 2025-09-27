@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+
 import Icon from '../../../components/AppIcon';
-import Input from '../../../components/ui/Input';
-import Button from '../../../components/ui/Button';
 import Image from '../../../components/AppImage';
+import Button from '../../../components/ui/Button';
+import Input from '../../../components/ui/Input';
 
 const EquipmentSelector = ({ selectedEquipment, onEquipmentSelect }) => {
   const [searchTerm, setSearchTerm] = useState('');

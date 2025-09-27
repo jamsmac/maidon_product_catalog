@@ -1,8 +1,4 @@
-import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Button from '../../components/ui/Button';
-import Input from '../../components/ui/Input';
-import Select from '../../components/ui/Select';
 import { 
   Calculator,
   Save,
@@ -20,6 +16,12 @@ import {
   Percent,
   Calendar
 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+
+import Button from '../../components/ui/Button';
+import Input from '../../components/ui/Input';
+import Select from '../../components/ui/Select';
+
 
 const FinancingCalculator = () => {
   const [calculationInputs, setCalculationInputs] = useState({

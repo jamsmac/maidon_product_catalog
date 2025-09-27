@@ -50,8 +50,8 @@ export function useGoogleAnalytics() {
       // Set up global site tag properties
       gtag('set', {
         'cookie_flags': 'SameSite=None;Secure',
-        'currency': 'RUB',
-        'country': 'RU',
+        'currency': 'UZS',
+        'country': 'UZ',
         'language': 'ru'
       });
     }

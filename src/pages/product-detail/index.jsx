@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../../components/ui/Header';
+
 import SEOHead from '../../components/SEOHead';
-import ProductHero from './components/ProductHero';
-import MediaGallery from './components/MediaGallery';
-import PricingSection from './components/PricingSection';
-import StickyCTAPanel from './components/StickyCTAPanel';
-import SpecificationsTable from './components/SpecificationsTable';
-import ProductConfigurator from './components/ProductConfigurator';
+import Header from '../../components/ui/Header';
 import { useGoogleAnalytics, useEngagementTracking } from '../../hooks/useGoogleAnalytics';
 import { analytics } from '../../utils/analytics';
+
+import MediaGallery from './components/MediaGallery';
+import PricingSection from './components/PricingSection';
+import ProductConfigurator from './components/ProductConfigurator';
+import ProductHero from './components/ProductHero';
+import SpecificationsTable from './components/SpecificationsTable';
+import StickyCTAPanel from './components/StickyCTAPanel';
+
 
 const ProductDetail = () => {
   const navigate = useNavigate();
@@ -81,7 +84,7 @@ const ProductDetail = () => {
         }
       ],
       additionalCosts: [
-        { name: 'Доставка по Москве', price: 15000 },
+        { name: 'Доставка по Узбекистану', price: 15000 },
         { name: 'Монтаж и настройка', price: 25000 },
         { name: 'Обучение персонала', note: 'Бесплатно' },
         { name: 'Техосмотр (первый год)', note: 'Включено' }
@@ -220,7 +223,7 @@ const ProductDetail = () => {
     },
     {
       question: "Доступна ли доставка и установка?",
-      answer: "Да, мы предоставляем услуги доставки по всей России, монтажа, пуско-наладки и обучения персонала. Доставка бесплатная при заказе от 3 млн рублей."
+      answer: "Да, мы предоставляем услуги доставки по всему Узбекистану, монтажа, пуско-наладки и обучения персонала. Доставка бесплатная при заказе от 30 млн UZS."
     }
   ];
 
@@ -413,11 +416,11 @@ const ProductDetail = () => {
                       <div className="space-y-2 text-sm">
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-success rounded-full"></div>
-                          <span className="text-muted-foreground">Бесплатная доставка от 3 млн ₽</span>
+                          <span className="text-muted-foreground">Бесплатная доставка от 30 млн UZS</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-success rounded-full"></div>
-                          <span className="text-muted-foreground">Доставка по всей России</span>
+                          <span className="text-muted-foreground">Доставка по всему Узбекистану</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-success rounded-full"></div>

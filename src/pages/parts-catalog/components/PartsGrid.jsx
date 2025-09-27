@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
@@ -37,9 +38,9 @@ const PartsGrid = ({ parts, onAddToCart, onRequestQuote, onViewDetails }) => {
   };
 
   const formatPrice = (price) => {
-    return new Intl.NumberFormat('ru-RU', {
+    return new Intl.NumberFormat('uz-UZ', {
       style: 'currency',
-      currency: 'RUB',
+      currency: 'UZS',
       minimumFractionDigits: 0,
       maximumFractionDigits: 0
     })?.format(price);
@@ -180,7 +181,6 @@ const PartsGrid = ({ parts, onAddToCart, onRequestQuote, onViewDetails }) => {
                   </Button>
                   <Button
                     variant="outline"
-                    size="sm"
                     onClick={() => onRequestQuote(part)}
                     iconName="FileText"
                     size="icon"

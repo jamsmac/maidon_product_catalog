@@ -1,5 +1,5 @@
-import React from 'react';
 import { AlertTriangle, Calendar, Wrench, Bell, Clock } from 'lucide-react';
+import React from 'react';
 
 const MaintenanceAlerts = ({ equipment }) => {
   const getMaintenanceAlerts = () => {

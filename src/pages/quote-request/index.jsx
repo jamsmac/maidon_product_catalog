@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import Header from '../../components/ui/Header';
-import Button from '../../components/ui/Button';
+
 import Icon from '../../components/AppIcon';
+import Button from '../../components/ui/Button';
+import Header from '../../components/ui/Header';
 
 // Import components
-import ContactInformation from './components/ContactInformation';
 import CompanyDetails from './components/CompanyDetails';
-import EquipmentSpecifications from './components/EquipmentSpecifications';
-import FinancingPreferences from './components/FinancingPreferences';
+import ContactInformation from './components/ContactInformation';
 import DeliveryCalculator from './components/DeliveryCalculator';
+import EquipmentSpecifications from './components/EquipmentSpecifications';
 import FileUpload from './components/FileUpload';
-import TrustSignals from './components/TrustSignals';
+import FinancingPreferences from './components/FinancingPreferences';
 import ProgressIndicator from './components/ProgressIndicator';
+import TrustSignals from './components/TrustSignals';
 
 const QuoteRequest = () => {
   const navigate = useNavigate();

@@ -1,9 +1,4 @@
-import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Button from '../../components/ui/Button';
-import Input from '../../components/ui/Input';
-import Select from '../../components/ui/Select';
-import { Checkbox } from '../../components/ui/Checkbox';
 import { 
   Plus, 
   Minus, 
@@ -19,6 +14,12 @@ import {
   BarChart3,
   Zap
 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+
+import Button from '../../components/ui/Button';
+import { Checkbox } from '../../components/ui/Checkbox';
+import Input from '../../components/ui/Input';
+import Select from '../../components/ui/Select';
 
 const ProductComparison = () => {
   const [selectedProducts, setSelectedProducts] = useState([]);

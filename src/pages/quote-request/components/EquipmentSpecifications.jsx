@@ -1,7 +1,8 @@
 import React from 'react';
+
+import Icon from '../../../components/AppIcon';
 import Input from '../../../components/ui/Input';
 import Select from '../../../components/ui/Select';
-import Icon from '../../../components/AppIcon';
 
 const EquipmentSpecifications = ({ formData, updateFormData, errors }) => {
   const handleInputChange = (field, value) => {

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+
 import Icon from '../../../components/AppIcon';
-import Select from '../../../components/ui/Select';
-import Input from '../../../components/ui/Input';
-import { Checkbox } from '../../../components/ui/Checkbox';
 import Button from '../../../components/ui/Button';
+import { Checkbox } from '../../../components/ui/Checkbox';
+import Input from '../../../components/ui/Input';
+import Select from '../../../components/ui/Select';
 
 const PartsSearchFilters = ({ onFiltersChange, resultsCount = 0 }) => {
   const [filters, setFilters] = useState({

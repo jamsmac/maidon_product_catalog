@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+
 import Icon from '../../../components/AppIcon';
-import Input from '../../../components/ui/Input';
 import Button from '../../../components/ui/Button';
-import Select from '../../../components/ui/Select';
 import { Checkbox } from '../../../components/ui/Checkbox';
+import Input from '../../../components/ui/Input';
+import Select from '../../../components/ui/Select';
 
 const BulkOrderForm = ({ selectedParts = [], onSubmit, onClose }) => {
   const [formData, setFormData] = useState({

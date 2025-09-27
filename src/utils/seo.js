@@ -18,7 +18,7 @@ export const generateProductStructuredData = (product) => {
     "offers": {
       "@type": "Offer",
       "url": window.location?.href,
-      "priceCurrency": "RUB",
+      "priceCurrency": "UZS",
       "price": product?.basePrice,
       "priceValidUntil": product?.pricing?.discount?.validUntil || "2025-12-31",
       "availability": product?.availability?.inStock ? "https://schema.org/InStock": "https://schema.org/OutOfStock",
@@ -74,8 +74,21 @@ export const generateVideoStructuredData = (videoData) => {
 };
 
 export const generateSEOMetaTags = (product) => {
-  const title = `${product?.name} ${product?.modelCode} - Купить по цене ${product?.basePrice?.toLocaleString()} ₽ | MYDON`;
-  const description = `${product?.name} ${product?.modelCode}: ${product?.keyFeatures?.slice(0, 3)?.map(f => f?.label + ' ' + f?.value)?.join(', ')}. ✅ В наличии ✅ Гарантия 3 года ✅ Доставка по России. Звоните!`;
+  const formatUZS = (value) => {
+    try {
+      return new Intl.NumberFormat('uz-UZ', {
+        style: 'currency',
+        currency: 'UZS',
+        maximumFractionDigits: 0
+      }).format(value || 0);
+    } catch {
+      return `${(value || 0).toLocaleString()} UZS`;
+    }
+  };
+
+  const formattedPrice = formatUZS(product?.basePrice);
+  const title = `${product?.name} ${product?.modelCode} - Купить по цене ${formattedPrice} | MYDON`;
+  const description = `${product?.name} ${product?.modelCode}: ${product?.keyFeatures?.slice(0, 3)?.map(f => f?.label + ' ' + f?.value)?.join(', ')}. ✅ В наличии ✅ Гарантия 3 года ✅ Доставка по Узбекистану. Звоните!`;
   
   return {
     title: title?.length > 70 ? title?.substring(0, 67) + '...' : title,
