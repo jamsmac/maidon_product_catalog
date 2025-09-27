@@ -176,7 +176,7 @@ const BookingConfirmation = ({
               <div className="text-right">
                 <div className="text-sm font-body font-semibold text-foreground">
                   {typeof selectedPackage?.price === 'number' 
-                    ? `${selectedPackage?.price?.toLocaleString('ru-RU')} ₽`
+                    ? `${selectedPackage?.price?.toLocaleString('uz-UZ')} UZS`
                     : selectedPackage?.price
                   }
                 </div>

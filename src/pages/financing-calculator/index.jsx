@@ -5,7 +5,7 @@ import {
   Users,
   FileText,
   TrendingUp,
-  DollarSign,
+  Banknote,
   Clock,
   Shield,
   AlertCircle,
@@ -256,7 +256,7 @@ const FinancingCalculator = () => {
                     Стоимость техники
                   </label>
                   <div className="relative">
-                    <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <Banknote className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                     <Input
                       type="number"
                       value={calculationInputs?.equipmentPrice}
@@ -273,7 +273,7 @@ const FinancingCalculator = () => {
                     Первоначальный взнос
                   </label>
                   <div className="relative">
-                    <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <Banknote className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                     <Input
                       type="number"
                       value={calculationInputs?.downPayment}
@@ -456,7 +456,7 @@ const FinancingCalculator = () => {
                 <div className="bg-gray-50 rounded-lg p-4">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm font-medium text-gray-700">Общая стоимость</span>
-                    <DollarSign className="w-4 h-4 text-gray-600" />
+                    <Banknote className="w-4 h-4 text-gray-600" />
                   </div>
                   <div className="text-xl font-bold text-gray-900">
                     {formatCurrency(results?.totalCost || 0)}
