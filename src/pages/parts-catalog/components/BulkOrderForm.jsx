@@ -60,7 +60,7 @@ const BulkOrderForm = ({ selectedParts = [], onSubmit, onClose }) => {
   };
 
   const formatPrice = (price) => {
-    return new Intl.NumberFormat('ru-RU', {
+    return new Intl.NumberFormat('uz-UZ', {
       style: 'currency',
       currency: 'RUB',
       minimumFractionDigits: 0,

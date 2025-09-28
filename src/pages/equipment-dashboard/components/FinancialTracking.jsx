@@ -71,7 +71,7 @@ const FinancialTracking = ({ equipment, timeRange }) => {
   ];
 
   const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('ru-RU', {
+    return new Intl.NumberFormat('uz-UZ', {
       style: 'currency',
       currency: 'RUB',
       minimumFractionDigits: 0,
