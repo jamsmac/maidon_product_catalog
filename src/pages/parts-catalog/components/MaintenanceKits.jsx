@@ -82,9 +82,9 @@ const MaintenanceKits = ({ onKitSelect, onAddToCart }) => {
   ];
 
   const formatPrice = (price) => {
-    return new Intl.NumberFormat('ru-RU', {
+    return new Intl.NumberFormat('uz-UZ', {
       style: 'currency',
-      currency: 'RUB',
+      currency: 'UZS',
       minimumFractionDigits: 0,
       maximumFractionDigits: 0
     })?.format(price);
@@ -201,7 +201,6 @@ const MaintenanceKits = ({ onKitSelect, onAddToCart }) => {
                 </Button>
                 <Button
                   variant="outline"
-                  size="sm"
                   onClick={() => handleKitSelect(kit)}
                   iconName={selectedKit?.id === kit?.id ? "ChevronUp" : "ChevronDown"}
                   size="icon"

@@ -281,7 +281,7 @@ const ProductComparison = () => {
                   <h3 className="font-medium text-gray-900 mb-1">{product?.name}</h3>
                   <p className="text-sm text-gray-500 mb-2">{product?.manufacturer}</p>
                   <p className="text-lg font-semibold text-blue-600 mb-3">
-                    {product?.price?.toLocaleString('ru-RU')} ₽
+                    {product?.price?.toLocaleString('uz-UZ')} UZS
                   </p>
                   <Button
                     onClick={() => addProduct(product)}
@@ -364,7 +364,7 @@ const ProductComparison = () => {
                           <td key={product?.id} className="p-4 text-center">
                             <div className="flex items-center justify-center gap-2">
                               <span className="font-semibold text-blue-600">
-                                {product?.price?.toLocaleString('ru-RU')} ₽
+                                {product?.price?.toLocaleString('uz-UZ')} UZS
                               </span>
                               {getValueIndicator('price', product?.price, selectedProducts)}
                             </div>
@@ -441,7 +441,7 @@ const ProductComparison = () => {
                           {selectedProducts?.[currentProductIndex]?.manufacturer}
                         </p>
                         <p className="text-xl font-bold text-blue-600 mt-2">
-                          {selectedProducts?.[currentProductIndex]?.price?.toLocaleString('ru-RU')} ₽
+                          {selectedProducts?.[currentProductIndex]?.price?.toLocaleString('uz-UZ')} UZS
                         </p>
                       </div>
 
