@@ -220,7 +220,7 @@ const ProductDetail = () => {
     },
     {
       question: "Доступна ли доставка и установка?",
-      answer: "Да, мы предоставляем услуги доставки по всему Узбекистану, монтажа, пуско-наладки и обучения персонала. Доставка бесплатная при заказе от 30 млн UZS."
+      answer: "Да, мы предоставляем услуги доставки по всей России, монтажа, пуско-наладки и обучения персонала. Доставка бесплатная при заказе от 3 млн рублей."
     }
   ];
 
@@ -413,7 +413,7 @@ const ProductDetail = () => {
                       <div className="space-y-2 text-sm">
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-success rounded-full"></div>
-                          <span className="text-muted-foreground">Бесплатная доставка от 30 млн UZS</span>
+                          <span className="text-muted-foreground">Бесплатная доставка от 3 млн ₽</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-success rounded-full"></div>

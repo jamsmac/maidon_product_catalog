@@ -77,7 +77,7 @@ const FinancingPreferences = ({ formData, updateFormData, errors }) => {
         />
 
         <Input
-          label="Бюджет (UZS)"
+          label="Бюджет (₽)"
           type="number"
           placeholder="1 000 000"
           value={formData?.financingPrefs?.budget}

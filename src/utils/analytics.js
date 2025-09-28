@@ -43,7 +43,7 @@ class AnalyticsTracker {
 
     // Enhanced ecommerce event
     window.gtag('event', 'view_item', {
-      currency: 'UZS',
+      currency: 'RUB',
       value: product?.basePrice,
       items: [{
         item_id: product?.id,
@@ -105,13 +105,13 @@ class AnalyticsTracker {
       product_id: product?.id,
       product_name: product?.name,
       quote_value: configuredPrice || product?.basePrice,
-      currency: 'UZS',
+      currency: 'RUB',
       funnel_step: 'quote_request'
     });
 
     // Enhanced ecommerce event
     window.gtag('event', 'generate_lead', {
-      currency: 'UZS',
+      currency: 'RUB',
       value: configuredPrice || product?.basePrice,
       lead_type: 'quote_request',
       product_interest: product?.name
@@ -142,7 +142,7 @@ class AnalyticsTracker {
       product_id: productId,
       kit_type: kitType,
       kit_value: kitValue,
-      currency: 'UZS'
+      currency: 'RUB'
     });
   }
 
@@ -163,7 +163,7 @@ class AnalyticsTracker {
     window.gtag('event', 'conversion', {
       send_to: import.meta.env?.VITE_GA_CONVERSION_ID,
       value: formValue || 0,
-      currency: 'UZS',
+      currency: 'RUB',
       transaction_id: `${formType}_${Date.now()}`
     });
   }
@@ -178,13 +178,13 @@ class AnalyticsTracker {
       product_id: product?.id,
       product_name: product?.name,
       purchase_value: product?.basePrice,
-      currency: 'UZS',
+      currency: 'RUB',
       purchase_method: 'buy_now'
     });
 
     // Enhanced ecommerce
     window.gtag('event', 'purchase_intent', {
-      currency: 'UZS',
+      currency: 'RUB',
       value: product?.basePrice,
       items: [{
         item_id: product?.id,

@@ -92,7 +92,7 @@ const CompanyDetails = ({ formData, updateFormData, errors }) => {
         />
 
         <Input
-          label="Годовой оборот (млн UZS)"
+          label="Годовой оборот (млн ₽)"
           type="number"
           placeholder="100"
           value={formData?.companyDetails?.annualRevenue}

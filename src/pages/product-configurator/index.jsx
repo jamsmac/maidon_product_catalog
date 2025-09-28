@@ -171,9 +171,9 @@ const ProductConfigurator = () => {
                     Текущая стоимость
                   </p>
                   <p className="text-xl font-heading font-bold text-primary">
-                    {new Intl.NumberFormat('uz-UZ', {
+                    {new Intl.NumberFormat('ru-RU', {
                       style: 'currency',
-                      currency: 'UZS',
+                      currency: 'RUB',
                       minimumFractionDigits: 0,
                       maximumFractionDigits: 0
                     })?.format(pricing?.totalPrice)}

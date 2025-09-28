@@ -73,7 +73,7 @@ const FinancialTracking = ({ equipment, timeRange }) => {
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('ru-RU', {
       style: 'currency',
-      currency: 'UZS',
+      currency: 'RUB',
       minimumFractionDigits: 0,
       maximumFractionDigits: 0
     })?.format(amount);
