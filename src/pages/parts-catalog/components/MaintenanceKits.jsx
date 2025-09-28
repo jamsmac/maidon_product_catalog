@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
 
 import Icon from '@components/AppIcon';
 import Image from '@components/AppImage';
 import Button from '@components/ui/Button';
+import React, { useState } from 'react';
 
 const MaintenanceKits = ({ onKitSelect, onAddToCart }) => {
   const [selectedKit, setSelectedKit] = useState(null);

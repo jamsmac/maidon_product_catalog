@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
+import { api } from '../../services/api';
 import Icon from '../../components/AppIcon';
 import Button from '../../components/ui/Button';
 import Header from '../../components/ui/Header';
@@ -242,12 +243,74 @@ const QuoteRequest = () => {
 
     setIsSubmitting(true);
 
-    // Simulate API call
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setShowSuccessModal(true);
+      const response = await api.createQuote(formData);
+      if (response.success !== false) { // API may return success or just data
+        setShowSuccessModal(true);
+        // Очистить форму
+        setFormData({
+          contactInfo: {
+            title: '',
+            firstName: '',
+            lastName: '',
+            position: '',
+            department: '',
+            workPhone: '',
+            mobilePhone: '',
+            workEmail: ''
+          },
+          companyDetails: {
+            companyName: '',
+            inn: '',
+            kpp: '',
+            companySize: '',
+            industry: '',
+            website: '',
+            annualRevenue: '',
+            legalAddress: '',
+            actualAddress: ''
+          },
+          equipmentSpecs: {
+            equipmentType: '',
+            loadCapacity: '',
+            liftHeight: '',
+            quantity: '1',
+            usageIntensity: '',
+            aisleWidth: '',
+            floorType: '',
+            additionalRequirements: '',
+            preSelectedModel: 'Maidon EFG 2.5T',
+            preSelectedConfig: 'Стандартная конфигурация с литий-ионной батареей'
+          },
+          financingPrefs: {
+            purchaseType: '',
+            leasingTerm: '',
+            paymentMethod: '',
+            budget: '',
+            downPayment: '',
+            includeInsurance: false,
+            includeMaintenance: false,
+            includeTraining: false,
+            includeDelivery: true,
+            considerUsed: false
+          },
+          deliveryInfo: {
+            region: '',
+            city: '',
+            address: '',
+            deliveryType: 'standard',
+            preferredDate: '',
+            specialRequirements: ''
+          },
+          attachments: {
+            files: []
+          }
+        });
+        setCurrentStep(1);
+      }
     } catch (error) {
       console.error('Error submitting quote request:', error);
+      alert('Ошибка отправки заявки');
     } finally {
       setIsSubmitting(false);
     }

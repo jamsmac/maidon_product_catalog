@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { Search, Filter, Download, AlertTriangle, CheckCircle, Clock, MapPin, Wrench, Activity, Fuel, Calendar, Users, FileText, BarChart3, PieChart, MoreVertical, Eye, Edit, Bell, Gauge } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 
+import { api } from '../../services/api';
+import { useApiErrorHandler } from '../../utils/apiErrorHandler';
 import Button from '../../components/ui/Button';
 import Input from '../../components/ui/Input';
 import Select from '../../components/ui/Select';
@@ -14,152 +16,27 @@ import LocationTracking from './components/LocationTracking';
 import MaintenanceAlerts from './components/MaintenanceAlerts';
 import PerformanceMetrics from './components/PerformanceMetrics';
 
+import { DashboardSkeleton, TableSkeleton, ListItemSkeleton } from '../../components/ui/Skeleton';
+
 const EquipmentDashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState('all');
   const [filterStatus, setFilterStatus] = useState('all');
   const [selectedTimeRange, setSelectedTimeRange] = useState('30');
-  const [selectedLocation, setSelectedLocation] = useState('all');
   const [dashboardLayout, setDashboardLayout] = useState('grid');
   const [notifications, setNotifications] = useState([]);
   const [equipmentData, setEquipmentData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Mock data for equipment fleet
-  const mockEquipmentData = [
-    {
-      id: 1,
-      name: 'Экскаватор CAT 320D #001',
-      type: 'excavator',
-      status: 'active',
-      location: 'Стройплощадка А',
-      coordinates: [55.7558, 37.6173],
-      operatorName: 'Иванов И.И.',
-      workingHours: 8.5,
-      fuelLevel: 85,
-      lastMaintenance: '2024-01-15',
-      nextMaintenance: '2024-02-15',
-      utilizationRate: 92,
-      productivity: 156,
-      alerts: ['Превышение нормы расхода топлива'],
-      financials: {
-        dailyCost: 12500,
-        depreciation: 2500,
-        maintenance: 1200,
-        fuel: 3800
-      }
-    },
-    {
-      id: 2,
-      name: 'Погрузчик JCB 540-180 #002',
-      type: 'loader',
-      status: 'maintenance',
-      location: 'Сервисный центр',
-      coordinates: [55.7658, 37.6273],
-      operatorName: 'Петров П.П.',
-      workingHours: 0,
-      fuelLevel: 45,
-      lastMaintenance: '2024-01-20',
-      nextMaintenance: '2024-01-25',
-      utilizationRate: 0,
-      productivity: 0,
-      alerts: ['Плановое ТО', 'Замена гидравлической жидкости'],
-      financials: {
-        dailyCost: 8500,
-        depreciation: 1800,
-        maintenance: 4200,
-        fuel: 0
-      }
-    },
-    {
-      id: 3,
-      name: 'Бульдозер CAT D6T #003',
-      type: 'bulldozer',
-      status: 'idle',
-      location: 'Стройплощадка Б',
-      coordinates: [55.7458, 37.6073],
-      operatorName: 'Сидоров С.С.',
-      workingHours: 2.5,
-      fuelLevel: 65,
-      lastMaintenance: '2024-01-10',
-      nextMaintenance: '2024-02-10',
-      utilizationRate: 25,
-      productivity: 45,
-      alerts: [],
-      financials: {
-        dailyCost: 15000,
-        depreciation: 3200,
-        maintenance: 800,
-        fuel: 1500
-      }
-    },
-    {
-      id: 4,
-      name: 'Экскаватор Komatsu PC210 #004',
-      type: 'excavator',
-      status: 'warning',
-      location: 'Стройплощадка А',
-      coordinates: [55.7568, 37.6183],
-      operatorName: 'Козлов К.К.',
-      workingHours: 7.2,
-      fuelLevel: 25,
-      lastMaintenance: '2024-01-05',
-      nextMaintenance: '2024-01-30',
-      utilizationRate: 88,
-      productivity: 142,
-      alerts: ['Низкий уровень топлива', 'Требуется диагностика двигателя'],
-      financials: {
-        dailyCost: 11800,
-        depreciation: 2200,
-        maintenance: 1500,
-        fuel: 3100
-      }
-    },
-    {
-      id: 5,
-      name: 'Автокран Liebherr LTM #005',
-      type: 'crane',
-      status: 'active',
-      location: 'Стройплощадка В',
-      coordinates: [55.7358, 37.5973],
-      operatorName: 'Морозов М.М.',
-      workingHours: 6.8,
-      fuelLevel: 78,
-      lastMaintenance: '2024-01-18',
-      nextMaintenance: '2024-02-18',
-      utilizationRate: 85,
-      productivity: 125,
-      alerts: [],
-      financials: {
-        dailyCost: 18500,
-        depreciation: 4200,
-        maintenance: 2100,
-        fuel: 5200
-      }
-    },
-    {
-      id: 6,
-      name: 'Самосвал KAMAZ-65115 #006',
-      type: 'truck',
-      status: 'active',
-      location: 'В пути',
-      coordinates: [55.7668, 37.6283],
-      operatorName: 'Новиков Н.Н.',
-      workingHours: 9.2,
-      fuelLevel: 55,
-      lastMaintenance: '2024-01-12',
-      nextMaintenance: '2024-02-12',
-      utilizationRate: 95,
-      productivity: 180,
-      alerts: ['Превышение скорости'],
-      financials: {
-        dailyCost: 9500,
-        depreciation: 1500,
-        maintenance: 900,
-        fuel: 4100
-      }
+  const { wrapApiCall } = useApiErrorHandler({
+    showToast: false, // Отключаем алерты, используем состояния компонента
+    onError: (error) => {
+      setError(error.message);
+      setLoading(false);
     }
-  ];
+  });
 
   const statusColors = {
     active: 'text-green-600 bg-green-100',
@@ -186,32 +63,38 @@ const EquipmentDashboard = () => {
   };
 
   useEffect(() => {
-    setEquipmentData(mockEquipmentData);
-    
-    // Mock notifications
-    setNotifications([
-      { id: 1, type: 'maintenance', message: 'Погрузчик JCB 540-180 #002 требует планового ТО', time: '10:30' },
-      { id: 2, type: 'fuel', message: 'Экскаватор Komatsu PC210 #004 - низкий уровень топлива', time: '11:15' },
-      { id: 3, type: 'speed', message: 'Самосвал KAMAZ-65115 #006 - превышение скорости', time: '12:00' }
-    ]);
+    const fetchEquipment = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const data = await api.getEquipment();
+        setEquipmentData(data);
+      } catch (err) {
+        console.error('Failed to fetch equipment:', err);
+        setError(err.message || 'Не удалось загрузить данные оборудования');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEquipment();
 
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1024);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  }, []); // Убираем зависимость wrapApiCall!
 
   const filteredEquipment = equipmentData?.filter(equipment => {
     const matchesSearch = equipment?.name?.toLowerCase()?.includes(searchTerm?.toLowerCase()) ||
                          equipment?.operatorName?.toLowerCase()?.includes(searchTerm?.toLowerCase());
     const matchesType = filterType === 'all' || equipment?.type === filterType;
     const matchesStatus = filterStatus === 'all' || equipment?.status === filterStatus;
-    const matchesLocation = selectedLocation === 'all' || equipment?.location === selectedLocation;
-    
-    return matchesSearch && matchesType && matchesStatus && matchesLocation;
+
+    return matchesSearch && matchesType && matchesStatus;
   });
 
   const getStatusIcon = (status) => {
@@ -361,32 +244,46 @@ const EquipmentDashboard = () => {
         {/* Equipment List */}
         <div className="bg-white rounded-xl shadow-sm border">
           <div className="p-6">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-              <h2 className="text-xl font-semibold text-gray-900">
-                Список техники ({filteredEquipment?.length})
-              </h2>
-              
-              <div className="flex items-center gap-3">
-                <Button
-                  variant={dashboardLayout === 'grid' ? 'solid' : 'outline'}
-                  size="sm"
-                  onClick={() => setDashboardLayout('grid')}
-                >
-                  <PieChart className="w-4 h-4" />
-                </Button>
-                <Button
-                  variant={dashboardLayout === 'list' ? 'solid' : 'outline'}
-                  size="sm"
-                  onClick={() => setDashboardLayout('list')}
-                >
-                  <BarChart3 className="w-4 h-4" />
-                </Button>
-                <Button onClick={exportData} variant="outline" size="sm">
-                  <Download className="w-4 h-4 mr-2" />
-                  Экспорт
-                </Button>
+            {loading && (
+              <DashboardSkeleton />
+            )}
+
+            {error && (
+              <div className="text-center py-12">
+                <AlertTriangle className="w-16 h-16 text-red-400 mx-auto mb-4" />
+                <h3 className="text-lg font-medium text-gray-900 mb-2">Ошибка загрузки</h3>
+                <p className="text-gray-500">{error}</p>
               </div>
-            </div>
+            )}
+
+            {!loading && !error && (
+              <>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+                  <h2 className="text-xl font-semibold text-gray-900">
+                    Список техники ({filteredEquipment?.length})
+                  </h2>
+
+                  <div className="flex items-center gap-3">
+                    <Button
+                      variant={dashboardLayout === 'grid' ? 'solid' : 'outline'}
+                      size="sm"
+                      onClick={() => setDashboardLayout('grid')}
+                    >
+                      <PieChart className="w-4 h-4" />
+                    </Button>
+                    <Button
+                      variant={dashboardLayout === 'list' ? 'solid' : 'outline'}
+                      size="sm"
+                      onClick={() => setDashboardLayout('list')}
+                    >
+                      <BarChart3 className="w-4 h-4" />
+                    </Button>
+                    <Button onClick={exportData} variant="outline" size="sm">
+                      <Download className="w-4 h-4 mr-2" />
+                      Экспорт
+                    </Button>
+                  </div>
+                </div>
 
             {/* Desktop Table View */}
             {!isMobile && dashboardLayout === 'list' ? (
@@ -572,6 +469,8 @@ const EquipmentDashboard = () => {
                 <p className="text-gray-500">Попробуйте изменить параметры поиска или фильтры</p>
               </div>
             )}
+            </>
+          )}
           </div>
         </div>
       </div>

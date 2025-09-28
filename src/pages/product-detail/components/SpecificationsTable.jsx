@@ -1,9 +1,6 @@
 import { ChevronDown, ChevronUp, Info, Zap, Maximize, Battery, Shield, User } from 'lucide-react';
 import React, { useState } from 'react';
 
-import Icon from '../../../components/AppIcon';
-
-
 const SpecificationsTable = ({ specifications = [], onTabOpen }) => {
   const [expandedCategories, setExpandedCategories] = useState(
     specifications?.reduce((acc, spec) => {

@@ -1,0 +1,204 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Электропогрузчик EP25",
+      "price": 2850000,
+      "image": "/assets/images/no_image.png",
+      "description": "Надежный электропогрузчик для складских работ",
+      "specifications": {
+        "loadCapacity": "2500 кг",
+        "liftHeight": "3.3 м",
+        "batteryCapacity": "400 Ач",
+        "driveType": "Электрический",
+        "mastType": "Дуплекс"
+      },
+      "features": ["Тихая работа", "Низкое энергопотребление", "Высокая маневренность"]
+    },
+    {
+      "id": 2,
+      "name": "Дизельный погрузчик DL35",
+      "price": 3200000,
+      "image": "/assets/images/no_image.png",
+      "description": "Мощный дизельный погрузчик для тяжелых условий эксплуатации",
+      "specifications": {
+        "loadCapacity": "3500 кг",
+        "liftHeight": "4.5 м",
+        "engineType": "Дизель",
+        "driveType": "Дизель",
+        "mastType": "Триплекс"
+      },
+      "features": ["Высокая мощность", "Надежность в суровых условиях", "Увеличенная грузоподъемность"]
+    },
+    {
+      "id": 3,
+      "name": "Автокран Liebherr LTM 1060",
+      "price": 85000000,
+      "image": "/assets/images/no_image.png",
+      "description": "Современный автокран большой грузоподъемности",
+      "specifications": {
+        "loadCapacity": "60 т",
+        "boomLength": "60 м",
+        "enginePower": "400 л.с.",
+        "driveType": "Колесный",
+        "outreach": "45 м"
+      },
+      "features": ["Телескопическая стрела", "Полный привод", "Электронное управление"]
+    }
+  ],
+  "equipment": [
+    {
+      "id": 1,
+      "name": "Экскаватор CAT 320D #001",
+      "type": "excavator",
+      "status": "active",
+      "location": "Стройплощадка А",
+      "coordinates": [55.7558, 37.6173],
+      "operatorName": "Иванов И.И.",
+      "workingHours": 8.5,
+      "fuelLevel": 85,
+      "lastMaintenance": "2024-01-15",
+      "nextMaintenance": "2024-02-15",
+      "utilizationRate": 92,
+      "productivity": 156,
+      "alerts": ["Превышение нормы расхода топлива"],
+      "financials": {
+        "dailyCost": 12500,
+        "depreciation": 2500,
+        "maintenance": 1200,
+        "fuel": 3800
+      }
+    },
+    {
+      "id": 2,
+      "name": "Погрузчик JCB 540-180 #002",
+      "type": "loader",
+      "status": "maintenance",
+      "location": "Сервисный центр",
+      "coordinates": [55.7658, 37.6273],
+      "operatorName": "Петров П.П.",
+      "workingHours": 0,
+      "fuelLevel": 45,
+      "lastMaintenance": "2024-01-20",
+      "nextMaintenance": "2024-01-25",
+      "utilizationRate": 0,
+      "productivity": 0,
+      "alerts": ["Плановое ТО", "Замена гидравлической жидкости"],
+      "financials": {
+        "dailyCost": 8500,
+        "depreciation": 1800,
+        "maintenance": 4200,
+        "fuel": 0
+      }
+    },
+    {
+      "id": 3,
+      "name": "Бульдозер CAT D6T #003",
+      "type": "bulldozer",
+      "status": "idle",
+      "location": "Стройплощадка Б",
+      "coordinates": [55.7458, 37.6073],
+      "operatorName": "Сидоров С.С.",
+      "workingHours": 2.5,
+      "fuelLevel": 65,
+      "lastMaintenance": "2024-01-10",
+      "nextMaintenance": "2024-02-10",
+      "utilizationRate": 25,
+      "productivity": 45,
+      "alerts": [],
+      "financials": {
+        "dailyCost": 15000,
+        "depreciation": 3200,
+        "maintenance": 800,
+        "fuel": 1500
+      }
+    },
+    {
+      "id": 4,
+      "name": "Экскаватор Komatsu PC210 #004",
+      "type": "excavator",
+      "status": "warning",
+      "location": "Стройплощадка А",
+      "coordinates": [55.7568, 37.6183],
+      "operatorName": "Козлов К.К.",
+      "workingHours": 7.2,
+      "fuelLevel": 25,
+      "lastMaintenance": "2024-01-05",
+      "nextMaintenance": "2024-01-30",
+      "utilizationRate": 88,
+      "productivity": 142,
+      "alerts": ["Низкий уровень топлива", "Требуется диагностика двигателя"],
+      "financials": {
+        "dailyCost": 11800,
+        "depreciation": 2200,
+        "maintenance": 1500,
+        "fuel": 3100
+      }
+    },
+    {
+      "id": 5,
+      "name": "Автокран Liebherr LTM #005",
+      "type": "crane",
+      "status": "active",
+      "location": "Стройплощадка В",
+      "coordinates": [55.7358, 37.5973],
+      "operatorName": "Морозов М.М.",
+      "workingHours": 6.8,
+      "fuelLevel": 78,
+      "lastMaintenance": "2024-01-18",
+      "nextMaintenance": "2024-02-18",
+      "utilizationRate": 85,
+      "productivity": 125,
+      "alerts": [],
+      "financials": {
+        "dailyCost": 18500,
+        "depreciation": 4200,
+        "maintenance": 2100,
+        "fuel": 5200
+      }
+    },
+    {
+      "id": 6,
+      "name": "Самосвал KAMAZ-65115 #006",
+      "type": "truck",
+      "status": "active",
+      "location": "В пути",
+      "coordinates": [55.7668, 37.6283],
+      "operatorName": "Новиков Н.Н.",
+      "workingHours": 9.2,
+      "fuelLevel": 55,
+      "lastMaintenance": "2024-01-12",
+      "nextMaintenance": "2024-02-12",
+      "utilizationRate": 95,
+      "productivity": 180,
+      "alerts": ["Превышение скорости"],
+      "financials": {
+        "dailyCost": 9500,
+        "depreciation": 1500,
+        "maintenance": 900,
+        "fuel": 4100
+      }
+    }
+  ],
+  "parts": [
+    {
+      "id": 1,
+      "name": "Фильтр гидравлический",
+      "partNumber": "FL-HYD-001",
+      "vin": "1HGCM82633A000001",
+      "price": 2500,
+      "compatibility": ["CAT 320D", "CAT D6T"]
+    }
+  ],
+  "quotes": [],
+  "orders": [],
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@mydon.uz",
+      "password": "admin123",
+      "name": "Администратор",
+      "role": "admin"
+    }
+  ]
+}

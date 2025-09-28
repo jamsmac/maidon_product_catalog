@@ -5,8 +5,11 @@ import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Routes as RouterRoutes, Route } from "react-router-dom";
 
 // Route-based code splitting
+const Cart = lazy(() => import("./pages/cart"));
+const Catalog = lazy(() => import("./pages/catalog"));
 const EquipmentDashboard = lazy(() => import("./pages/equipment-dashboard"));
 const FinancingCalculator = lazy(() => import("./pages/financing-calculator"));
+const Login = lazy(() => import("./pages/login"));
 const PartsCatalog = lazy(() => import("./pages/parts-catalog"));
 const ProductComparison = lazy(() => import("./pages/product-comparison"));
 const ProductConfigurator = lazy(() => import("./pages/product-configurator"));
@@ -22,6 +25,8 @@ const Routes = () => {
         <Suspense fallback={<div className="p-8 text-sm text-muted-foreground">Загрузка...</div>}>
           <RouterRoutes>
             <Route path="/" element={<PartsCatalog />} />
+            <Route path="/catalog" element={<Catalog />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/product-detail" element={<ProductDetail />} />
             <Route path="/parts-catalog" element={<PartsCatalog />} />
             <Route path="/service-scheduling" element={<ServiceScheduling />} />
@@ -30,6 +35,7 @@ const Routes = () => {
             <Route path="/product-comparison" element={<ProductComparison />} />
             <Route path="/financing-calculator" element={<FinancingCalculator />} />
             <Route path="/equipment-dashboard" element={<EquipmentDashboard />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="*" element={<NotFound />} />
           </RouterRoutes>
         </Suspense>

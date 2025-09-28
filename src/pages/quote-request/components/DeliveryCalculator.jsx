@@ -165,7 +165,7 @@ const DeliveryCalculator = ({ formData, updateFormData, errors }) => {
                       <Icon name="Banknote" size={16} className="text-success" />
                       <div>
                         <p className="text-sm font-medium text-foreground">
-                          {deliveryEstimate?.freeDelivery ? 'Бесплатно' : `${deliveryEstimate?.cost?.toLocaleString('ru-RU')} ₽`}
+                          {deliveryEstimate?.freeDelivery ? 'Бесплатно' : `${deliveryEstimate?.cost?.toLocaleString('ru-RU')} UZS`}
                         </p>
                         <p className="text-xs text-muted-foreground">Стоимость доставки</p>
                       </div>

@@ -155,7 +155,7 @@ const PartsSearchFilters = ({ onFiltersChange, resultsCount = 0 }) => {
         {/* Price Range */}
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">
-            Диапазон цен (₽)
+            Диапазон цен (UZS)
           </label>
           <div className="grid grid-cols-2 gap-3">
             <Input

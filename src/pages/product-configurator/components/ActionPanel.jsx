@@ -1,23 +1,26 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { useCart } from '../../../hooks/useCart';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 
-const ActionPanel = ({ 
-  configuration, 
-  totalPrice, 
-  onSaveConfiguration, 
-  onAddToComparison 
+const ActionPanel = ({
+  configuration,
+  totalPrice,
+  onSaveConfiguration,
+  onAddToComparison,
+  productData
 }) => {
   const navigate = useNavigate();
+  const { addToCart } = useCart();
   const [isSaving, setIsSaving] = useState(false);
   const [isAddingToComparison, setIsAddingToComparison] = useState(false);
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat('ru-RU', {
       style: 'currency',
-      currency: 'RUB',
+      currency: 'UZS',
       minimumFractionDigits: 0,
       maximumFractionDigits: 0
     })?.format(price);
@@ -56,6 +59,18 @@ const ActionPanel = ({
         productType: 'forklift'
       }
     });
+  };
+
+  const handleAddToCart = () => {
+    const configuredProduct = {
+      ...productData,
+      configuration: configuration,
+      finalPrice: totalPrice,
+      configurationCode: getConfigurationCode()
+    };
+
+    addToCart(configuredProduct);
+    navigate('/cart');
   };
 
   const handleBackToProduct = () => {
@@ -114,6 +129,18 @@ const ActionPanel = ({
           className="h-12"
         >
           Запросить коммерческое предложение
+        </Button>
+
+        <Button
+          variant="outline"
+          fullWidth
+          onClick={handleAddToCart}
+          iconName="ShoppingCart"
+          iconPosition="left"
+          iconSize={18}
+          className="h-11 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+        >
+          Добавить в корзину
         </Button>
 
         <div className="grid grid-cols-2 gap-2">

@@ -238,6 +238,7 @@ const ProductConfigurator = () => {
                     totalPrice={pricing?.totalPrice}
                     onSaveConfiguration={handleSaveConfiguration}
                     onAddToComparison={handleAddToComparison}
+                    productData={productData}
                   />
                 )}
               </div>)
@@ -272,6 +273,7 @@ const ProductConfigurator = () => {
                     totalPrice={pricing?.totalPrice}
                     onSaveConfiguration={handleSaveConfiguration}
                     onAddToComparison={handleAddToComparison}
+                    productData={productData}
                   />
                 </div>
               </div>)

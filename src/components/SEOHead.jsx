@@ -18,10 +18,26 @@ const SEOHead = ({
   const description = customDescription || seoData?.description || 'Каталог промышленного оборудования MYDON. Погрузчики, складская техника, запчасти и сервис.';
   const keywords = customKeywords || seoData?.keywords || 'промышленное оборудование, погрузчики, складская техника, MYDON';
 
-  // Generate structured data
-  const productStructuredData = product ? generateProductStructuredData(product) : null;
-  const faqStructuredData = faqs?.length > 0 ? generateFAQStructuredData(faqs) : null;
-  const videoStructuredData = videoData ? generateVideoStructuredData(videoData) : null;
+  // Generate structured data with safe serialization
+  let productStructuredData = null;
+  let faqStructuredData = null;
+  let videoStructuredData = null;
+
+  try {
+    productStructuredData = product ? generateProductStructuredData(product) : null;
+    faqStructuredData = faqs?.length > 0 ? generateFAQStructuredData(faqs) : null;
+    videoStructuredData = videoData ? generateVideoStructuredData(videoData) : null;
+  } catch (error) {
+    console.warn('Error generating structured data:', error);
+  }
+
+  // Safe value extraction helper
+  const safeValue = (value) => {
+    if (value === null || value === undefined) return '';
+    if (typeof value === 'symbol') return '';
+    if (typeof value === 'object') return JSON.stringify(value).replace(/[^\w\s.-]/g, '');
+    return String(value);
+  };
 
   return (
     <Helmet>
@@ -53,7 +69,7 @@ const SEOHead = ({
       {/* Product specific Open Graph */}
       {product && (
         <>
-          <meta property="product:price:amount" content={product?.basePrice} />
+          <meta property="product:price:amount" content={safeValue(product?.basePrice)} />
           <meta property="product:price:currency" content="UZS" />
           <meta property="product:availability" content={product?.availability?.inStock ? "in stock" : "out of stock"} />
           <meta property="product:brand" content="MYDON" />
@@ -68,9 +84,9 @@ const SEOHead = ({
       <meta name="twitter:title" content={seoData?.twitterTitle || title} />
       <meta name="twitter:description" content={seoData?.twitterDescription || description} />
       <meta name="twitter:image" content={seoData?.twitterImage || '/assets/images/no_image.png'} />
-      <meta name="twitter:image:alt" content={product?.name || 'MYDON промышленное оборудование'} />
+      <meta name="twitter:image:alt" content={safeValue(product?.name) || 'MYDON промышленное оборудование'} />
       {/* Additional Meta Tags for E-commerce */}
-      <meta name="price" content={product?.basePrice} />
+      <meta name="price" content={safeValue(product?.basePrice)} />
       <meta name="priceCurrency" content="UZS" />
       <meta name="availability" content={product?.availability?.inStock ? "InStock" : "OutOfStock"} />
       <meta name="category" content="Промышленное оборудование" />

@@ -166,7 +166,7 @@ const ServicePackages = ({ selectedPackage, onPackageSelect }) => {
                     <div className="text-right">
                       <div className="text-sm font-body font-semibold text-foreground">
                         {typeof pkg?.price === 'number' 
-                          ? `${pkg?.price?.toLocaleString('ru-RU')} ₽`
+                          ? `${pkg?.price?.toLocaleString('ru-RU')} UZS`
                           : pkg?.price
                         }
                       </div>
@@ -229,7 +229,7 @@ const ServicePackages = ({ selectedPackage, onPackageSelect }) => {
                     <span className="text-muted-foreground">Стоимость:</span>
                     <span className="ml-2 text-foreground">
                       {typeof selectedPackage?.price === 'number' 
-                        ? `${selectedPackage?.price?.toLocaleString('ru-RU')} ₽`
+                        ? `${selectedPackage?.price?.toLocaleString('ru-RU')} UZS`
                         : selectedPackage?.price
                       }
                     </span>

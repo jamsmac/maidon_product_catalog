@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
+import { useCart } from '../../hooks/useCart';
 import Icon from '../AppIcon';
 
 import Button from './Button';
@@ -8,6 +9,7 @@ import Button from './Button';
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { cart } = useCart();
 
   const navigationItems = [
     {
@@ -98,9 +100,9 @@ const Header = () => {
                 `}
                 title={item?.tooltip}
               >
-                <Icon 
-                  name={item?.icon} 
-                  size={18} 
+                <Icon
+                  name={item?.icon}
+                  size={18}
                   strokeWidth={2}
                   className={isActiveRoute(item?.path) ? 'text-primary-foreground' : 'text-muted-foreground'}
                 />
@@ -108,6 +110,18 @@ const Header = () => {
               </Link>
             ))}
           </nav>
+
+          {/* Cart Icon */}
+          <div className="relative ml-4">
+            <Link to="/cart">
+              <Icon name="ShoppingCart" size={24} className="text-foreground hover:text-primary transition-colors" />
+              {cart.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+                  {cart.length}
+                </span>
+              )}
+            </Link>
+          </div>
 
           {/* Mobile Menu Button */}
           <Button
