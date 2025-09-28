@@ -1,4 +1,9 @@
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Button from '../../components/ui/Button';
+import Input from '../../components/ui/Input';
+import Select from '../../components/ui/Select';
+import { Checkbox } from '../../components/ui/Checkbox';
 import { 
   Plus, 
   Minus, 
@@ -14,12 +19,6 @@ import {
   BarChart3,
   Zap
 } from 'lucide-react';
-import React, { useState, useEffect } from 'react';
-
-import Button from '../../components/ui/Button';
-import { Checkbox } from '../../components/ui/Checkbox';
-import Input from '../../components/ui/Input';
-import Select from '../../components/ui/Select';
 
 const ProductComparison = () => {
   const [selectedProducts, setSelectedProducts] = useState([]);
@@ -282,7 +281,7 @@ const ProductComparison = () => {
                   <h3 className="font-medium text-gray-900 mb-1">{product?.name}</h3>
                   <p className="text-sm text-gray-500 mb-2">{product?.manufacturer}</p>
                   <p className="text-lg font-semibold text-blue-600 mb-3">
-                    {product?.price?.toLocaleString('uz-UZ')} UZS
+                    {product?.price?.toLocaleString('ru-RU')} ₽
                   </p>
                   <Button
                     onClick={() => addProduct(product)}
@@ -365,7 +364,7 @@ const ProductComparison = () => {
                           <td key={product?.id} className="p-4 text-center">
                             <div className="flex items-center justify-center gap-2">
                               <span className="font-semibold text-blue-600">
-                                {product?.price?.toLocaleString('uz-UZ')} UZS
+                                {product?.price?.toLocaleString('ru-RU')} ₽
                               </span>
                               {getValueIndicator('price', product?.price, selectedProducts)}
                             </div>
@@ -442,7 +441,7 @@ const ProductComparison = () => {
                           {selectedProducts?.[currentProductIndex]?.manufacturer}
                         </p>
                         <p className="text-xl font-bold text-blue-600 mt-2">
-                          {selectedProducts?.[currentProductIndex]?.price?.toLocaleString('uz-UZ')} UZS
+                          {selectedProducts?.[currentProductIndex]?.price?.toLocaleString('ru-RU')} ₽
                         </p>
                       </div>
 

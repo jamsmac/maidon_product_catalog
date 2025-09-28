@@ -1,6 +1,5 @@
-import { ChevronDown, ChevronUp, Info, Zap, Maximize, Battery, Shield, User } from 'lucide-react';
 import React, { useState } from 'react';
-
+import { ChevronDown, ChevronUp, Info, Zap, Maximize, Battery, Shield, User } from 'lucide-react';
 import Icon from '../../../components/AppIcon';
 
 

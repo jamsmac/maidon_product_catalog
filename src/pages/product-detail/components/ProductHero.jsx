@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';

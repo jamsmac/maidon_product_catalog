@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-
+import Header from '../../components/ui/Header';
 import Icon from '../../components/AppIcon';
 import Button from '../../components/ui/Button';
-import Header from '../../components/ui/Header';
-
-import BookingConfirmation from './components/BookingConfirmation';
-import EquipmentSelector from './components/EquipmentSelector';
 import ServiceCalendar from './components/ServiceCalendar';
-import ServiceDetails from './components/ServiceDetails';
+import EquipmentSelector from './components/EquipmentSelector';
 import ServicePackages from './components/ServicePackages';
+import ServiceDetails from './components/ServiceDetails';
+import BookingConfirmation from './components/BookingConfirmation';
 
 const ServiceScheduling = () => {
   const [selectedEquipment, setSelectedEquipment] = useState(null);
@@ -316,7 +314,7 @@ const ServiceScheduling = () => {
               </div>
               <Button variant="outline" size="sm">
                 <Icon name="Phone" size={16} className="mr-2" />
-                +998 (78) 555-0199
+                +7 (800) 555-0199
               </Button>
             </div>
           </div>

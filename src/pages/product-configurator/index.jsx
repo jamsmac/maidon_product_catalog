@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-
+import Header from '../../components/ui/Header';
+import ConfigurationPanel from './components/ConfigurationPanel';
+import ProductPreview from './components/ProductPreview';
+import ActionPanel from './components/ActionPanel';
+import ConfigurationSummary from './components/ConfigurationSummary';
 import Icon from '../../components/AppIcon';
 import Button from '../../components/ui/Button';
-import Header from '../../components/ui/Header';
-
-import ActionPanel from './components/ActionPanel';
-import ConfigurationPanel from './components/ConfigurationPanel';
-import ConfigurationSummary from './components/ConfigurationSummary';
-import ProductPreview from './components/ProductPreview';
 
 const ProductConfigurator = () => {
   const [configuration, setConfiguration] = useState({
@@ -173,9 +171,9 @@ const ProductConfigurator = () => {
                     Текущая стоимость
                   </p>
                   <p className="text-xl font-heading font-bold text-primary">
-                    {new Intl.NumberFormat('uz-UZ', {
+                    {new Intl.NumberFormat('ru-RU', {
                       style: 'currency',
-                      currency: 'UZS',
+                      currency: 'RUB',
                       minimumFractionDigits: 0,
                       maximumFractionDigits: 0
                     })?.format(pricing?.totalPrice)}

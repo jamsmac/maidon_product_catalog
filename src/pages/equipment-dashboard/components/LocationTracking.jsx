@@ -1,6 +1,5 @@
-import { MapPin, Navigation, Maximize2, Filter, Eye } from 'lucide-react';
 import React, { useState } from 'react';
-
+import { MapPin, Navigation, Maximize2, Filter, Eye } from 'lucide-react';
 import Button from '../../../components/ui/Button';
 
 const LocationTracking = ({ equipment }) => {

@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-
+import Header from '../../components/ui/Header';
 import Icon from '../../components/AppIcon';
 import Button from '../../components/ui/Button';
-import Header from '../../components/ui/Header';
-
-import BulkOrderForm from './components/BulkOrderForm';
+import VinSearchForm from './components/VinSearchForm';
+import PartsSearchFilters from './components/PartsSearchFilters';
+import PartsGrid from './components/PartsGrid';
 import InteractivePartsDiagram from './components/InteractivePartsDiagram';
 import MaintenanceKits from './components/MaintenanceKits';
-import PartsGrid from './components/PartsGrid';
-import PartsSearchFilters from './components/PartsSearchFilters';
-import VinSearchForm from './components/VinSearchForm';
+import BulkOrderForm from './components/BulkOrderForm';
 
 const PartsCatalog = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -289,7 +287,7 @@ const PartsCatalog = () => {
                               <div className="flex items-center space-x-3">
                                 <Icon name="CheckSquare" size={20} className="text-primary" />
                                 <span className="font-medium text-foreground">
-                                  Выбрано {selectedParts?.length} позиций
+                                  Выбrano {selectedParts?.length} позиций
                                 </span>
                               </div>
                               <div className="flex space-x-2">
@@ -361,7 +359,7 @@ const PartsCatalog = () => {
                     Помощь в подборе запчастей и консультации по совместимости
                   </p>
                   <Button variant="outline" size="sm">
-                    +998 (78) 123-45-67
+                    +7 (495) 123-45-67
                   </Button>
                 </div>
 
@@ -373,10 +371,10 @@ const PartsCatalog = () => {
                     Быстрая доставка
                   </h3>
                   <p className="text-muted-foreground mb-4">
-                    Доставка по Узбекистану в течение 1-3 дней, срочная доставка за 24 часа
+                    Доставка по России в течение 1-3 дней, срочная доставка за 24 часа
                   </p>
                   <Button variant="outline" size="sm">
-                    +998 (78) 123-45-67
+                    Рассчитать стоимость
                   </Button>
                 </div>
 

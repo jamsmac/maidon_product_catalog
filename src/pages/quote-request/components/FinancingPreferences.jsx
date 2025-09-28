@@ -1,8 +1,7 @@
 import React from 'react';
-
+import Select from '../../../components/ui/Select';
 import { Checkbox } from '../../../components/ui/Checkbox';
 import Input from '../../../components/ui/Input';
-import Select from '../../../components/ui/Select';
 
 const FinancingPreferences = ({ formData, updateFormData, errors }) => {
   const handleInputChange = (field, value) => {
@@ -78,7 +77,7 @@ const FinancingPreferences = ({ formData, updateFormData, errors }) => {
         />
 
         <Input
-          label="Бюджет (UZS)"
+          label="Бюджет (₽)"
           type="number"
           placeholder="1 000 000"
           value={formData?.financingPrefs?.budget}

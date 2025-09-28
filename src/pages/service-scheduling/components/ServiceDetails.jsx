@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-
 import Icon from '../../../components/AppIcon';
-import Button from '../../../components/ui/Button';
-import { Checkbox } from '../../../components/ui/Checkbox';
 import Input from '../../../components/ui/Input';
 import Select from '../../../components/ui/Select';
+import Button from '../../../components/ui/Button';
+import { Checkbox } from '../../../components/ui/Checkbox';
 
 const ServiceDetails = ({ serviceDetails, onDetailsChange }) => {
   const [uploadedFiles, setUploadedFiles] = useState([]);

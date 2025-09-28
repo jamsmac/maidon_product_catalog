@@ -1,7 +1,7 @@
-import Icon from '../components/AppIcon';
-import Button from '../components/ui/Button';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Button from 'components/ui/Button';
+import Icon from 'components/AppIcon';
 
 const NotFound = () => {
   const navigate = useNavigate();
@@ -19,28 +19,28 @@ const NotFound = () => {
           </div>
         </div>
 
-        <h2 className="text-2xl font-heading font-semibold text-foreground mb-2">Страница не найдена</h2>
-        <p className="text-muted-foreground mb-8">
-          Запрашиваемая страница не найдена. Вернёмся на главный экран.
+        <h2 className="text-2xl font-medium text-onBackground mb-2">Page Not Found</h2>
+        <p className="text-onBackground/70 mb-8">
+          The page you're looking for doesn't exist. Let's get you back!
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
-            variant="default"
-            iconName="ArrowLeft"
+            variant="primary"
+            icon={<Icon name="ArrowLeft" />}
             iconPosition="left"
             onClick={() => window.history?.back()}
           >
-            Назад
+            Go Back
           </Button>
 
           <Button
             variant="outline"
-            iconName="Home"
+            icon={<Icon name="Home" />}
             iconPosition="left"
             onClick={handleGoHome}
           >
-            На главную
+            Back to Home
           </Button>
         </div>
       </div>

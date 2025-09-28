@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-
 import Icon from '../../../components/AppIcon';
-import Image from '../../../components/AppImage';
-import Button from '../../../components/ui/Button';
 import Input from '../../../components/ui/Input';
+import Button from '../../../components/ui/Button';
+import Image from '../../../components/AppImage';
 
 const EquipmentSelector = ({ selectedEquipment, onEquipmentSelect }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -184,7 +183,7 @@ const EquipmentSelector = ({ selectedEquipment, onEquipmentSelect }) => {
                       <div>Тип: {equipment?.type}</div>
                       <div>Грузоподъемность: {equipment?.capacity}</div>
                       <div>Местоположение: {equipment?.location}</div>
-                      <div>Моточасы: {equipment?.hours?.toLocaleString('uz-UZ')}</div>
+                      <div>Моточасы: {equipment?.hours?.toLocaleString('ru-RU')}</div>
                     </div>
                   </div>
                 </div>
@@ -233,7 +232,7 @@ const EquipmentSelector = ({ selectedEquipment, onEquipmentSelect }) => {
                   </div>
                   <div className="space-y-1">
                     <div className="text-muted-foreground">Моточасы:</div>
-                    <div className="text-foreground">{selectedEquipment?.hours?.toLocaleString('uz-UZ')}</div>
+                    <div className="text-foreground">{selectedEquipment?.hours?.toLocaleString('ru-RU')}</div>
                   </div>
                   <div className="space-y-1">
                     <div className="text-muted-foreground">Последнее ТО:</div>

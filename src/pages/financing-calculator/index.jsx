@@ -1,11 +1,15 @@
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Button from '../../components/ui/Button';
+import Input from '../../components/ui/Input';
+import Select from '../../components/ui/Select';
 import { 
   Calculator,
   Save,
   Users,
   FileText,
   TrendingUp,
-  Banknote,
+  DollarSign,
   Clock,
   Shield,
   AlertCircle,
@@ -16,12 +20,6 @@ import {
   Percent,
   Calendar
 } from 'lucide-react';
-import React, { useState, useEffect } from 'react';
-
-import Button from '../../components/ui/Button';
-import Input from '../../components/ui/Input';
-import Select from '../../components/ui/Select';
-
 
 const FinancingCalculator = () => {
   const [calculationInputs, setCalculationInputs] = useState({
@@ -256,7 +254,7 @@ const FinancingCalculator = () => {
                     Стоимость техники
                   </label>
                   <div className="relative">
-                    <Banknote className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                     <Input
                       type="number"
                       value={calculationInputs?.equipmentPrice}
@@ -273,7 +271,7 @@ const FinancingCalculator = () => {
                     Первоначальный взнос
                   </label>
                   <div className="relative">
-                    <Banknote className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                     <Input
                       type="number"
                       value={calculationInputs?.downPayment}
@@ -456,7 +454,7 @@ const FinancingCalculator = () => {
                 <div className="bg-gray-50 rounded-lg p-4">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm font-medium text-gray-700">Общая стоимость</span>
-                    <Banknote className="w-4 h-4 text-gray-600" />
+                    <DollarSign className="w-4 h-4 text-gray-600" />
                   </div>
                   <div className="text-xl font-bold text-gray-900">
                     {formatCurrency(results?.totalCost || 0)}

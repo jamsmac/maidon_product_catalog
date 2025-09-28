@@ -12,10 +12,8 @@ function Image({
       src={src}
       alt={alt}
       className={className}
-      loading="lazy"
-      decoding="async"
       onError={(e) => {
-        e.currentTarget.src = "/assets/images/no_image.png";
+        e.target.src = "/assets/images/no_image.png"
       }}
       {...props}
     />

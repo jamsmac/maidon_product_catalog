@@ -1,8 +1,7 @@
 import React from 'react';
-
 import Icon from '../../../components/AppIcon';
-import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
+import Image from '../../../components/AppImage';
 
 const BookingConfirmation = ({ 
   selectedEquipment, 
@@ -176,7 +175,7 @@ const BookingConfirmation = ({
               <div className="text-right">
                 <div className="text-sm font-body font-semibold text-foreground">
                   {typeof selectedPackage?.price === 'number' 
-                    ? `${selectedPackage?.price?.toLocaleString('uz-UZ')} UZS`
+                    ? `${selectedPackage?.price?.toLocaleString('ru-RU')} ₽`
                     : selectedPackage?.price
                   }
                 </div>

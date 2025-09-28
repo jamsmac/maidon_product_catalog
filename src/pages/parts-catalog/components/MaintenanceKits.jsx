@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
@@ -83,9 +82,9 @@ const MaintenanceKits = ({ onKitSelect, onAddToCart }) => {
   ];
 
   const formatPrice = (price) => {
-    return new Intl.NumberFormat('uz-UZ', {
+    return new Intl.NumberFormat('ru-RU', {
       style: 'currency',
-      currency: 'UZS',
+      currency: 'RUB',
       minimumFractionDigits: 0,
       maximumFractionDigits: 0
     })?.format(price);
@@ -202,6 +201,7 @@ const MaintenanceKits = ({ onKitSelect, onAddToCart }) => {
                 </Button>
                 <Button
                   variant="outline"
+                  size="sm"
                   onClick={() => handleKitSelect(kit)}
                   iconName={selectedKit?.id === kit?.id ? "ChevronUp" : "ChevronDown"}
                   size="icon"

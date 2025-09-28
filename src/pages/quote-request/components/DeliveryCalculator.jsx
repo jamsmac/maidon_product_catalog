@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
-import Icon from '../../../components/AppIcon';
 import Input from '../../../components/ui/Input';
 import Select from '../../../components/ui/Select';
+import Icon from '../../../components/AppIcon';
 
 const DeliveryCalculator = ({ formData, updateFormData, errors }) => {
   const [deliveryEstimate, setDeliveryEstimate] = useState(null);
@@ -165,7 +164,7 @@ const DeliveryCalculator = ({ formData, updateFormData, errors }) => {
                       <Icon name="Banknote" size={16} className="text-success" />
                       <div>
                         <p className="text-sm font-medium text-foreground">
-                          {deliveryEstimate?.freeDelivery ? 'Бесплатно' : `${deliveryEstimate?.cost?.toLocaleString('uz-UZ')} UZS`}
+                          {deliveryEstimate?.freeDelivery ? 'Бесплатно' : `${deliveryEstimate?.cost?.toLocaleString('ru-RU')} ₽`}
                         </p>
                         <p className="text-xs text-muted-foreground">Стоимость доставки</p>
                       </div>

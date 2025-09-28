@@ -1,3 +1,4 @@
+import React from 'react';
 import { 
   Activity, 
   CheckCircle, 
@@ -7,7 +8,6 @@ import {
   TrendingUp,
   TrendingDown
 } from 'lucide-react';
-import React from 'react';
 
 const FleetOverview = ({ equipment }) => {
   const stats = equipment?.reduce((acc, item) => {

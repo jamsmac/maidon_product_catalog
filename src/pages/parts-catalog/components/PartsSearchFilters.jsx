@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-
 import Icon from '../../../components/AppIcon';
-import Button from '../../../components/ui/Button';
-import { Checkbox } from '../../../components/ui/Checkbox';
-import Input from '../../../components/ui/Input';
 import Select from '../../../components/ui/Select';
+import Input from '../../../components/ui/Input';
+import { Checkbox } from '../../../components/ui/Checkbox';
+import Button from '../../../components/ui/Button';
 
 const PartsSearchFilters = ({ onFiltersChange, resultsCount = 0 }) => {
   const [filters, setFilters] = useState({
@@ -100,7 +99,7 @@ const PartsSearchFilters = ({ onFiltersChange, resultsCount = 0 }) => {
           <div>
             <h3 className="font-heading font-semibold text-foreground">Фильтры</h3>
             <p className="text-sm text-muted-foreground">
-              Найдено: {resultsCount?.toLocaleString('uz-UZ')} запчастей
+              Найдено: {resultsCount?.toLocaleString('ru-RU')} запчастей
             </p>
           </div>
         </div>
@@ -155,7 +154,7 @@ const PartsSearchFilters = ({ onFiltersChange, resultsCount = 0 }) => {
         {/* Price Range */}
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">
-            Диапазон цен (UZS)
+            Диапазон цен (₽)
           </label>
           <div className="grid grid-cols-2 gap-3">
             <Input

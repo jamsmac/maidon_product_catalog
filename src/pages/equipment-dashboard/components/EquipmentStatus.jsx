@@ -1,5 +1,5 @@
-import { PieChart } from 'lucide-react';
 import React from 'react';
+import { PieChart } from 'lucide-react';
 
 const EquipmentStatus = ({ equipment }) => {
   const statusData = equipment?.reduce((acc, item) => {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-
 import { generateSEOMetaTags, generateProductStructuredData, generateFAQStructuredData, generateVideoStructuredData } from '../utils/seo';
 
 const SEOHead = ({ 
@@ -44,12 +43,12 @@ const SEOHead = ({
       <meta property="og:type" content="product" />
       <meta property="og:title" content={seoData?.ogTitle || title} />
       <meta property="og:description" content={seoData?.ogDescription || description} />
-      <meta property="og:image" content={seoData?.ogImage || '/assets/images/no_image.png'} />
+      <meta property="og:image" content={seoData?.ogImage || '/assets/images/default-og-image.jpg'} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:url" content={typeof window !== 'undefined' ? window.location?.href : ''} />
       <meta property="og:site_name" content="MYDON" />
-      <meta property="og:locale" content="ru_UZ" />
+      <meta property="og:locale" content="ru_RU" />
       {/* Product specific Open Graph */}
       {product && (
         <>
@@ -67,7 +66,7 @@ const SEOHead = ({
       <meta name="twitter:creator" content="@MYDON_official" />
       <meta name="twitter:title" content={seoData?.twitterTitle || title} />
       <meta name="twitter:description" content={seoData?.twitterDescription || description} />
-      <meta name="twitter:image" content={seoData?.twitterImage || '/assets/images/no_image.png'} />
+      <meta name="twitter:image" content={seoData?.twitterImage || '/assets/images/default-og-image.jpg'} />
       <meta name="twitter:image:alt" content={product?.name || 'MYDON промышленное оборудование'} />
       {/* Additional Meta Tags for E-commerce */}
       <meta name="price" content={product?.basePrice} />

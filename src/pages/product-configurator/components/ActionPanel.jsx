@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 
@@ -17,7 +16,7 @@ const ActionPanel = ({
   const formatPrice = (price) => {
     return new Intl.NumberFormat('ru-RU', {
       style: 'currency',
-      currency: 'UZS',
+      currency: 'RUB',
       minimumFractionDigits: 0,
       maximumFractionDigits: 0
     })?.format(price);

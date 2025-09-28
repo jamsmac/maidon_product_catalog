@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Icon from '../../../components/AppIcon';
 
 const ProgressIndicator = ({ currentStep, totalSteps, completedFields, totalFields }) => {

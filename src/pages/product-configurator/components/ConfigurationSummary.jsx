@@ -1,12 +1,11 @@
 import React from 'react';
-
 import Icon from '../../../components/AppIcon';
 
 const ConfigurationSummary = ({ configuration, pricing }) => {
   const formatPrice = (price) => {
     return new Intl.NumberFormat('ru-RU', {
       style: 'currency',
-      currency: 'UZS',
+      currency: 'RUB',
       minimumFractionDigits: 0,
       maximumFractionDigits: 0
     })?.format(price);
