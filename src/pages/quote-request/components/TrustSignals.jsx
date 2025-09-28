@@ -180,7 +180,7 @@ const TrustSignals = () => {
             <div className="flex items-center space-x-3">
               <Icon name="MapPin" size={18} className="text-primary" />
               <div>
-                <p className="font-body font-medium text-foreground">г. Москва, ул. Промышленная, 15</p>
+                <p className="font-body font-medium text-foreground">г. Ташкент, ул. Промышленная, 15</p>
                 <p className="text-xs text-muted-foreground">Головной офис</p>
               </div>
             </div>
@@ -206,7 +206,7 @@ const TrustSignals = () => {
             <div className="flex items-center space-x-3">
               <Icon name="Truck" size={18} className="text-primary" />
               <div>
-                <p className="font-body font-medium text-foreground">По всей России</p>
+                <p className="font-body font-medium text-foreground">По всему Узбекистану</p>
                 <p className="text-xs text-muted-foreground">География поставок</p>
               </div>
             </div>

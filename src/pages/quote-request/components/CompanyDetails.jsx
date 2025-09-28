@@ -102,7 +102,7 @@ const CompanyDetails = ({ formData, updateFormData, errors }) => {
         <Input
           label="Юридический адрес"
           type="text"
-          placeholder="г. Москва, ул. Примерная, д. 1"
+          placeholder="г. Ташкент, ул. Примерная, д. 1"
           value={formData?.companyDetails?.legalAddress}
           onChange={(e) => handleInputChange('legalAddress', e?.target?.value)}
           error={errors?.legalAddress}
@@ -113,7 +113,7 @@ const CompanyDetails = ({ formData, updateFormData, errors }) => {
         <Input
           label="Фактический адрес"
           type="text"
-          placeholder="г. Москва, ул. Примерная, д. 1"
+          placeholder="г. Ташкент, ул. Примерная, д. 1"
           value={formData?.companyDetails?.actualAddress}
           onChange={(e) => handleInputChange('actualAddress', e?.target?.value)}
           className="md:col-span-2"

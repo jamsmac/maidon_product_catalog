@@ -12,7 +12,7 @@ const DeliveryCalculator = ({ formData, updateFormData, errors }) => {
   };
 
   const regionOptions = [
-    { value: 'moscow', label: 'Москва и Московская область' },
+    { value: 'tashkent', label: 'Ташкент и Ташкентская область' },
     { value: 'spb', label: 'Санкт-Петербург и Ленинградская область' },
     { value: 'central', label: 'Центральный федеральный округ' },
     { value: 'northwest', label: 'Северо-Западный федеральный округ' },
@@ -38,7 +38,7 @@ const DeliveryCalculator = ({ formData, updateFormData, errors }) => {
       setTimeout(() => {
         const basePrice = 15000;
         const regionMultiplier = {
-          'moscow': 1.0,
+          'tashkent': 1.0,
           'spb': 1.2,
           'central': 1.5,
           'northwest': 1.8,

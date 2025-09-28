@@ -14,7 +14,7 @@ const ActionPanel = ({
   const [isAddingToComparison, setIsAddingToComparison] = useState(false);
 
   const formatPrice = (price) => {
-    return new Intl.NumberFormat('ru-RU', {
+    return new Intl.NumberFormat('uz-UZ', {
       style: 'currency',
       currency: 'RUB',
       minimumFractionDigits: 0,
@@ -188,7 +188,7 @@ const ActionPanel = ({
                 Доставка и установка
               </p>
               <p className="text-xs text-muted-foreground">
-                Бесплатная доставка по Москве и области
+                Бесплатная доставка по Ташкенту и области
               </p>
             </div>
           </div>

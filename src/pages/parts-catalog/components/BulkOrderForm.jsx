@@ -60,7 +60,7 @@ const BulkOrderForm = ({ selectedParts = [], onSubmit, onClose }) => {
   };
 
   const formatPrice = (price) => {
-    return new Intl.NumberFormat('ru-RU', {
+    return new Intl.NumberFormat('uz-UZ', {
       style: 'currency',
       currency: 'RUB',
       minimumFractionDigits: 0,
@@ -168,7 +168,7 @@ const BulkOrderForm = ({ selectedParts = [], onSubmit, onClose }) => {
                 <Input
                   label="Адрес доставки"
                   type="text"
-                  placeholder="г. Москва, ул. Складская, д. 15"
+                  placeholder="г. Ташкент, ул. Складская, д. 15"
                   value={formData?.deliveryAddress}
                   onChange={(e) => handleInputChange('deliveryAddress', e?.target?.value)}
                   required

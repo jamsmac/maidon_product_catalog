@@ -3,7 +3,7 @@ import Icon from '../../../components/AppIcon';
 
 const ConfigurationSummary = ({ configuration, pricing }) => {
   const formatPrice = (price) => {
-    return new Intl.NumberFormat('ru-RU', {
+    return new Intl.NumberFormat('uz-UZ', {
       style: 'currency',
       currency: 'RUB',
       minimumFractionDigits: 0,
@@ -186,7 +186,7 @@ const ConfigurationSummary = ({ configuration, pricing }) => {
               <span className="text-muted-foreground">Доставка:</span>
             </div>
             <p className="font-medium text-foreground ml-6">
-              Бесплатно по Москве
+              Бесплатно по Ташкенту
             </p>
           </div>
 

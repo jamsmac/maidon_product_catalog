@@ -81,7 +81,7 @@ const ProductDetail = () => {
         }
       ],
       additionalCosts: [
-        { name: 'Доставка по Москве', price: 15000 },
+        { name: 'Доставка по Ташкенту', price: 15000 },
         { name: 'Монтаж и настройка', price: 25000 },
         { name: 'Обучение персонала', note: 'Бесплатно' },
         { name: 'Техосмотр (первый год)', note: 'Включено' }
@@ -417,7 +417,7 @@ const ProductDetail = () => {
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-success rounded-full"></div>
-                          <span className="text-muted-foreground">Доставка по всей России</span>
+                          <span className="text-muted-foreground">Доставка по всему Узбекистану</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-success rounded-full"></div>
